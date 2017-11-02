@@ -1,0 +1,12 @@
+body {
+  text-align: center; 
+}
+
+#carouselNewBooks {
+  margin: 10px; 
+}
+
+nav {
+  display: flex;
+  text-justify: center; 
+}

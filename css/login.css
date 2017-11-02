@@ -1,0 +1,19 @@
+form {
+    flex-direction: column;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+label{
+    margin: 5px;
+}
+
+label[for='errors']{
+    color: red;
+}

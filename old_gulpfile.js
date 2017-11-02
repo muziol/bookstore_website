@@ -11,6 +11,7 @@ gulp.task('serve', ['sass'], function() {
 
     gulp.watch("./scss/*.scss", ['sass']);
     gulp.watch("./*.html").on('change', browserSync.reload);
+    gulp.watch("./*.php").on('change', browserSync.reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers
