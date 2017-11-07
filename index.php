@@ -27,13 +27,14 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-          <img class="d-block img-fluid" src="..." alt="First slide">
+           <h1>Witamy w KsiengaReks</h1>
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="..." alt="Second slide">
+          <p>W pustyni i w paszczy 2299. </p>
+		  <p>Zemsta Salazara</p>
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="..." alt="Third slide">
+          <p>Nowość. Pan Tadeusz 3D</p>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselNewBooks" role="button" data-slide="prev">
@@ -45,6 +46,46 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+	
+	
+	<div id="allBooksList">
+		<?php /*
+		//****************************************************************************************
+										//BOOKS LISTING
+		//****************************************************************************************	
+		$curl = curl_init(); //LOADING CURL 
+
+		curl_setopt_array($curl, array(
+		  CURLOPT_URL => "http://192.168.43.124:5000/book", //HERE API LINK
+		  CURLOPT_RETURNTRANSFER => true,
+		  CURLOPT_TIMEOUT => 30,
+		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		  CURLOPT_CUSTOMREQUEST => "GET",						  //REQUEST TYPE
+		  CURLOPT_HTTPHEADER => array(
+			"cache-control: no-cache"
+		  ),
+		));
+
+		$response = curl_exec($curl);							  //HERE IS RESPONSE IN JSON
+		$err = curl_error($curl);
+		$response = json_decode($response, true);				  //DECODING JSON TO ARRAY
+		
+		echo '<h2>Books</h2></br>';
+		echo '<div class="container">';
+
+		for($i = 0; $i < count($response);$i++){				  //SHOWING BOOKS
+			echo '<div class="item">';
+			echo '<div class="cover"></div>';
+			echo '<h3>'.$response[$i]['title'].'</h3>';
+			echo '<p>'.$response[$i]['author'].'</p>';
+			echo '<p> Price:'.$response[$i]['price'].' zl</p>';			
+			echo '</div>';
+		}
+		echo '</div>';
+
+		curl_close($curl);*/
+		?>
+	</div>
         
       
     <nav>

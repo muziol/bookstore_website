@@ -1,0 +1,65 @@
+[
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "H.Sienkiewicz",
+    "title": "W pustyni i w puszczy",
+    "price": "129"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "G R.R.Martin",
+    "title": "Gra o tron",
+    "price": "69"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "Stephen King",
+    "title": "Śpiące Królewny",
+    "price": "299"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "Artur Nowicki, Marcin Brykczyński",
+    "title": "Opowiem Ci mamo co robią pociągi",
+    "price": "699"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "XYZ",
+    "title": "N.Pachala",
+    "price": "1199"
+  },{
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "H.Sienkiewicz",
+    "title": "W pustyni i w puszczy",
+    "price": "129"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "G R.R.Martin",
+    "title": "Gra o tron",
+    "price": "69"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "Stephen King",
+    "title": "Śpiące Królewny",
+    "price": "299"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "Artur Nowicki, Marcin Brykczyński",
+    "title": "Opowiem Ci mamo co robią pociągi",
+    "price": "699"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "author": "XYZ",
+    "title": "N.Pachala",
+    "price": "1199"
+  }
+  
+
+  
+  
+]

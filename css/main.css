@@ -1,5 +1,6 @@
 body {
   text-align: center; 
+    background-color: red !importnant;
 }
 
 #carouselNewBooks {
@@ -9,4 +10,31 @@ body {
 nav {
   display: flex;
   text-justify: center; 
+}
+
+.container {
+    display: -webkit-flex;
+    display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 900px;
+    background-color: lightgrey;
+}
+
+.item {
+
+    min-width: 150px;
+    min-height: 220px;
+	max-width: 150px;
+	min-height:220px;
+    margin: 10px;
+}
+
+.cover {
+	background-color: cornflowerblue;
+	width: 150px;
+	height: 200px;
+	margin: auto;
+	margin-bottom: 10px;
 }
