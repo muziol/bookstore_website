@@ -6,16 +6,16 @@ session_start();
 //////////////////////////////
 $check = true;
 $tmp = "Errors: <ul>";
-if (!isset($_POST['title'])){
+if ( $_POST['title'] === ""){
 	$tmp .= "<li>Title is empty</li>"; 
 	$check = false;
 }
-if ( !isset($_POST['author'])){
+if (  $_POST['author'] === ""){
 	$tmp .= "<li>Author is empty</li>"; 
 	$check = false;
 }
 if ( $_POST['genre'] === "" ){
-	$tmp .= "<li>Author is empty</li>"; 
+	$tmp .= "<li>Genre is empty</li>"; 
 	$check = false;
 }
 $tmp .= "</ul>";
@@ -82,16 +82,18 @@ if($check == true){
     curl_close($ch);
 
 
-
+    header("Location: dashboard.php");
 
 
 
 }
     //Relocation
-    header("Location: dashboard.php");
+   
 
-
-
+    if ($check === false) {
+        $_SESSION['auth'] = 'dashboard.php';
+        header("Location: auth.php");
+    }
 
 
 
