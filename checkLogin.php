@@ -23,7 +23,7 @@ if ($check === true){
 			$data_string = json_encode($data);  
 			echo 'console.log('.$data_string.')';                                                                                 
 		
-	$ch = curl_init('http://192.168.43.124:5000/login');                                                                      
+	$ch = curl_init('http://localhost:5000/login');                                                                      
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                     
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      

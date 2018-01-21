@@ -56,7 +56,7 @@ if	($check === true) {
 	$data = array( "Email" =>  $email, "Password" =>  $password, "UserName" => $name, "UserSurname" => $surname, "UserPhone" => $phone, "UserCity" => $city, "Role" => "user");                                                                    
 	$data_string = json_encode($data);                                                                                   
 	
-	$ch = curl_init('http://192.168.43.124:5000/register');                                                                      
+	$ch = curl_init('http://localhost:5000/register');                                                                      
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
