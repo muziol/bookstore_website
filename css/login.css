@@ -1,13 +1,6 @@
 form {
-    flex-direction: column;
-}
-
-.hide {
-    display: none;
-}
-
-.show {
     display: flex;
+    flex-direction: column;
 }
 
 label{

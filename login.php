@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
+	<meta charset="UTF-8">
     <link rel="stylesheet" href="css/login.css">
     
 </head>
@@ -11,11 +12,11 @@
         </label>
         
         <label for="Password">
-            <input type="password" name="password" class="login_password" placeholder="hasło">
+            <input type="password" name="password" class="login_password" placeholder="Password">
         </label>
 
         <label for="submit">
-            <input type="submit" value="Zaloguj">
+            <input type="submit" value="Log in">
         </label>
 
         <label for="errors"></label>
@@ -28,38 +29,38 @@
     
     <form action="sign_up.php" method="post" class="sign_up hide">
         <label for="Name">
-            <input type="text" name="name" class="sign_name" placeholder="imię">
+            <input type="text" name="name" class="sign_name" placeholder="First name">
         </label>
 
         <label for="Surname">
-            <input type="text" name="surrname" class="sign_surname" placeholder="nazwisko">
+            <input type="text" name="surrname" class="sign_surname" placeholder="Last name">
         </label>
 
         <label for="Email">
-            <input type="email" name="email" class="sign_email" placeholder="e-mail">
+            <input type="email" name="email" class="sign_email" placeholder="E-mail">
         </label>
 
         <label for="Password">
-            <input type="password" name="password" class="sign_password" placeholder="hasło">
+            <input type="password" name="password" class="sign_password" placeholder="Password">
         </label>
 
         <label for="Repeat_password">
-            <input type="password" name="repeat_password" class="sign_repeat_password" placeholder="powtórz hasło">
+            <input type="password" name="repeat_password" class="sign_repeat_password" placeholder="Repeat password">
         </label>
 
         <label for="phone">
-            <input type="tel" name="phone" class="sing_phone" placeholder="numer telefonu">
+            <input type="tel" name="phone" class="sing_phone" placeholder="Phone number">
         </label>
 
         <label for="submit">
-            <input type="submit" value="Załóż konto!">
+            <input type="submit" value="Create account!">
         </label>
 
         <label for="errors"></label>
 
         <label for="account_exist">
-            <span>Masz już konto? </span>
-            <input type="button" value="Zaloguj się" class="log_in_submit">
+            <span>Have ur account? Log in now!</span>
+            <input type="button" value="Log in" class="log_in_submit">
         </label>
     </form>
 
