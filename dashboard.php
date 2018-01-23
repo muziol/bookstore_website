@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['isLogged'])){
-    header("Location: login.php");
-}
+if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 
 ?>
 
@@ -20,7 +18,7 @@ if(!isset($_SESSION['isLogged'])){
         <form action="addBook.php" method="post" class="">
 
             <div class="field">
-                <input type="text" name="title" class="" placeholder="The name of book">
+                <input type="text" name="title" class="input-group" placeholder="The name of book">
                 <label>Title *</label>
             </div>
 
@@ -74,7 +72,7 @@ if(!isset($_SESSION['isLogged'])){
                 </label>
             </div>
     
-    
+    </div>
     
     
     
@@ -87,7 +85,7 @@ if(!isset($_SESSION['isLogged'])){
         $curl = curl_init(); //LOADING CURL 
     
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://10.100.6.126:5000/userbooks", 
+          CURLOPT_URL => $_SESSION['apiIP']."/userbooks", 
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -102,7 +100,7 @@ if(!isset($_SESSION['isLogged'])){
         $response = json_decode($response, true);				  //DECODING JSON TO ARRAY
         
         echo '<h2>Books</h2></br>';
-        echo '<div class="container">';
+        //echo '<div class="container">';
     
         for($i = 0; $i < count($response);$i++){				  //SHOWING BOOKS
             echo '<div class="item">';
@@ -113,7 +111,7 @@ if(!isset($_SESSION['isLogged'])){
             echo '<p>'.$response[$i]['email'].'</p>';	
             echo '</div>';
         }
-        echo '</div>';
+        //echo '</div>';
     
         curl_close($curl);
         ?>

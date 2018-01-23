@@ -1,3 +1,12 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/login.css">
+    
+</head>
+<div class="container">
 <form action="sign_up.php" method="post" class="sign_up">
 
     <div class="field">
@@ -48,8 +57,8 @@
         </label>
     
         <label for="account_exist">
-            <span>Have ur account? <a href="auth.php?header=log_in.php" >Log in now!</a> </span>
+            <span>Have ur account? <a href="log_in.php" >Log in now!</a> </span>
         </label>
     </div>
 </form>
-
+</div>

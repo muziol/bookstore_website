@@ -1,3 +1,11 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/login.css">
+    
+</head>
 <div class="container">
   
     <form action="checkLogin.php" method="post" class="log_in">
@@ -22,7 +30,7 @@
             </label>
     
             <label for="not_account_exist">
-                <span>Don't have an account yet? Don't hesitate, <a href="auth.php?header=sign_in.php" >register now!</a></span>
+                <span>Don't have an account yet? Don't hesitate, <a href="sign_in.php" >register now!</a></span>
             </label>
         </div>
 

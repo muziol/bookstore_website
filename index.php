@@ -1,3 +1,9 @@
+<?php
+
+//if(isset($_SESSION['isLogged'])) {header('Location: dashboard.php');}
+if(isset($_COOKIE['token'])) {header('Location: dashboard.php');}
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -25,8 +31,6 @@
       <input type="button" value="Log in" class="login">
     </label>
   </div>
-  
-  <?php $_SESSION['auth'] = 'log_in.php';?>
 
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->

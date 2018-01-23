@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
+
+?>
+
+<?php
+session_start();
 if(!isset($_SESSION['isLogged'])){
     header("Location: login.php");
 }
@@ -78,7 +85,7 @@ if($check == true){
     $data = array( "Title" =>  $title, "Author" =>  $author, "Publisher" => $publisher, "PublishDate" => $publishData,"PageNumber" => $pageNumber,"Language" => $language, "Translator" => $translator, "Condition" => $condition,"Genre" => $genre);                                                                  
 	$data_string = json_encode($data);                                                                           
 	
-	$ch = curl_init('http://10.100.6.126:5000/add');                                                                      
+	$ch = curl_init($_SESSION['apiIP'].'/add');                                                                      
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);                                                                     
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
@@ -98,14 +105,7 @@ if($check == true){
 
 
 }
-    //Relocation
    
-
-    if ($check === false) {
-        $_SESSION['auth'] = 'dashboard.php';
-        header("Location: auth.php");
-    }
-
 
 
 

@@ -1,6 +1,4 @@
 <?php
-if(isset($_SESSION['isLogged'])){
-    unset($_SESSION['isLogged']);
-}
+setcookie('token', '', time() - 3600);
 header("Location: index.php");
 ?>
