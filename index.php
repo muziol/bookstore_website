@@ -27,14 +27,9 @@
   </div>
   
   <?php $_SESSION['auth'] = 'log_in.php';?>
-<<<<<<< HEAD
-  
-    <!-- jQuery -->
-=======
 
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
->>>>>>> rafal
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="js/particles.js"></script>

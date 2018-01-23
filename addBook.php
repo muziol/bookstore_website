@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['isLogged'])){
+    header("Location: login.php");
+}
+
 
 //////////////////////////////
 // Validation of  user input
@@ -38,7 +42,7 @@ if($check == true){
     //Values which might be not specified
     if($_POST['publisher'] == null) { $_POST['publisher'] = "Not specified"; } //Setting unspecified values to Not specified
     if($_POST['publishdata'] == null) { $_POST['publishData'] = "Not specified"; }
-    if($_POST['pagenumber'] == null) { $_POST['pagenumber'] = "Not specified"; }
+    if($_POST['pagenumber'] == null) { $_POST['pagenumber'] = "0"; }
     if($_POST['language'] == null) { $_POST['language'] = "Not specified"; }
     if($_POST['translator'] == null) { $_POST['translator'] = "Not specified"; }
     if($_POST['condition'] == null) { $_POST['condition'] = "Not specified"; }

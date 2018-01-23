@@ -87,7 +87,7 @@ if(!isset($_SESSION['isLogged'])){
         $curl = curl_init(); //LOADING CURL 
     
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://10.100.6.126:5000/book", 
+          CURLOPT_URL => "http://10.100.6.126:5000/userbooks", 
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -109,7 +109,8 @@ if(!isset($_SESSION['isLogged'])){
             echo '<div class="cover"></div>';
             echo '<h3>'.$response[$i]['title'].'</h3>';
             echo '<p>'.$response[$i]['author'].'</p>';
-            //echo '<p> Price:'.$response[$i]['price'].' zl</p>';			
+            echo '<p>'.$response[$i]['genre'].'</p>';	
+            echo '<p>'.$response[$i]['email'].'</p>';	
             echo '</div>';
         }
         echo '</div>';
@@ -119,7 +120,8 @@ if(!isset($_SESSION['isLogged'])){
     
         </div>  
         </form>
-        
-    <button onclick="window.location.href='index.php'">Log out</button>
+        <form action="logout.php">
+            <button>Log out</button>
+        </form>
     </div>
 </body>
