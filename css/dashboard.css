@@ -61,3 +61,11 @@ input:focus {
 input:focus::-webkit-input-placeholder {
     opacity: 1;
 }
+.cover {
+	background-color: red;
+	width: 150px;
+	height: 200px;
+	margin: auto;
+    margin-bottom: 10px;
+    border: 2px solid white;
+}

@@ -10,70 +10,45 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 <html lang="pl">
 <head>
 	<meta charset="UTF-8">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="css/dashboard.css">-->
 </head>
 <body>
-    <div class="container">
 
-        <form action="addBook.php" method="post" class="">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">
+  Ksiegareks
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-            <div class="field">
-                <input type="text" name="title" class="input-group" placeholder="The name of book">
-                <label>Title *</label>
-            </div>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="dashboard.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="allOffers.php">All offers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="addOffer.php">Add offer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="myProfile.php">My profile</a>
+      </li>
+     
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="logout.php">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+    </form>
+      
+  </div>
+</nav>
 
-            <div class="field">
-                <input type="text" name="author" class="" placeholder="The person who wrote this book">
-                <label>Author *</label>
-            </div>
 
-            <div class="field">
-                <input type="text" name="publisher" class="" placeholder="Organization whos publish">
-                <label>Publisher</label>
-            </div>
-
-            <div class="field">
-                <input type="text" name="publishdata" class="" placeholder="When the book was published">
-                <label>Publish date</label>
-            </div>
-
-            <div class="field">
-                <input type="text" name="pagenumber" class="" placeholder="How much pages we need to read">
-                <label>Number of pages</label>
-            </div>
-
-            <div class="field">
-                <input type="text" name="language" class="" placeholder="Which language we need know to read it">
-                <label>Language</label>
-            </div>
-            
-            <div class="field">
-                <input type="text" name="translator" class="" placeholder="Orginal laguage of book">
-                <label>Translator</label>
-            </div>
-
-            <div class="field">
-                <input type="text" name="condition" class="" placeholder="Tell how much this book is able to read">
-                <label>Condition</label>
-            </div>
-
-            <div class="field">
-                <input type="text" name="genre" class="" placeholder="Genre of your book">
-                <label>Genre *</label>
-            </div>
-
-            <div class="group">
-                <label for="submit">
-                    <input type="submit" value="Publish">
-                </label>
         
-                <label for="errors">
-                    <?php if ( isset($_SESSION['error']) ){echo $_SESSION['error']; unset($_SESSION['error']);}?>
-                </label>
-            </div>
-    
-    </div>
-    
     
     
     
@@ -85,7 +60,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
         $curl = curl_init(); //LOADING CURL 
     
         curl_setopt_array($curl, array(
-          CURLOPT_URL => $_SESSION['apiIP']."/userbooks", 
+          CURLOPT_URL => $_SESSION['apiIP']."/book", 
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -100,18 +75,18 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
         $response = json_decode($response, true);				  //DECODING JSON TO ARRAY
         
         echo '<h2>Books</h2></br>';
-        //echo '<div class="container">';
+        echo '<div class="container">';
     
-        for($i = 0; $i < count($response);$i++){				  //SHOWING BOOKS
-            echo '<div class="item">';
+        for($i = 0; $i < count($response);$i++){				  //title do zmiany na id jak bedzie w API
+            echo '<div class="item" id='.$i.' onclick="goToBook(\''.$response[$i]['title'].'\')">';
             echo '<div class="cover"></div>';
             echo '<h3>'.$response[$i]['title'].'</h3>';
             echo '<p>'.$response[$i]['author'].'</p>';
-            echo '<p>'.$response[$i]['genre'].'</p>';	
-            echo '<p>'.$response[$i]['email'].'</p>';	
+            //echo '<p>'.$response[$i]['genre'].'</p>';	
+            //echo '<p>'.$response[$i]['email'].'</p>';	
             echo '</div>';
         }
-        //echo '</div>';
+        echo '</div>';
     
         curl_close($curl);
         ?>
@@ -122,4 +97,6 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
             <button>Log out</button>
         </form>
     </div>
+    <script type="text/javascript" src="js/dashboard.js" ></script>
 </body>
+</html>
