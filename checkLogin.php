@@ -45,7 +45,6 @@ if($respone_code == 200){
 
 	$_SESSION['error'] += "<li>Invalid credentials</li>";
 	header("Location: login.php");
-	$_SESSION['isLogged'] = false;
 	
 }
 

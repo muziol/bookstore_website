@@ -37,12 +37,12 @@ if($check == true){
 
     //Values which might be not specified
     if($_POST['publisher'] == null) { $_POST['publisher'] = "Not specified"; } //Setting unspecified values to Not specified
-    if($_POST['publishdata']  == null) { $_POST['publishData'] = "Not specified"; }
-    if(!isset($_POST['pagenumber'])) { $_POST['pagenumber'] = "Not specified"; }
-    if(!isset($_POST['language'])) { $_POST['language'] = "Not specified"; }
-    if(!isset($_POST['translator'])) { $_POST['translator'] = "Not specified"; }
-    if(!isset($_POST['condition'])) { $_POST['condition'] = "Not specified"; }
-    if(!isset($_POST['owner'])) { $_POST['owner'] = "Not specified"; }
+    if($_POST['publishdata'] == null) { $_POST['publishData'] = "Not specified"; }
+    if($_POST['pagenumber'] == null) { $_POST['pagenumber'] = "Not specified"; }
+    if($_POST['language'] == null) { $_POST['language'] = "Not specified"; }
+    if($_POST['translator'] == null) { $_POST['translator'] = "Not specified"; }
+    if($_POST['condition'] == null) { $_POST['condition'] = "Not specified"; }
+    if($_POST['owner'] == null) { $_POST['owner'] = "Not specified"; }
 
     //Assigment
     $publisher =  $_POST['publisher'];

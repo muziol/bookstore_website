@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['isLogged'])){
+    header("Location: login.php");
+}
+
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -68,7 +78,7 @@
         $curl = curl_init(); //LOADING CURL 
     
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://localhost:5000/book", 
+          CURLOPT_URL => "http://10.100.6.126:5000/book", 
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
