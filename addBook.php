@@ -36,8 +36,8 @@ if($check == true){
     $genre =  $_POST['genre'];
 
     //Values which might be not specified
-    if(!isset($_POST['publisher'])) { $_POST['publisher'] = "Not specified"; } //Setting unspecified values to Not specified
-    if(!isset($_POST['publishdata'])) { $_POST['publishData'] = "Not specified"; }
+    if($_POST['publisher'] == null) { $_POST['publisher'] = "Not specified"; } //Setting unspecified values to Not specified
+    if($_POST['publishdata']  == null) { $_POST['publishData'] = "Not specified"; }
     if(!isset($_POST['pagenumber'])) { $_POST['pagenumber'] = "Not specified"; }
     if(!isset($_POST['language'])) { $_POST['language'] = "Not specified"; }
     if(!isset($_POST['translator'])) { $_POST['translator'] = "Not specified"; }
@@ -55,31 +55,38 @@ if($check == true){
 
 
     //Preparing book to send
+    
     $book = array( "Title" =>  $title,
                    "Author" =>  $author,
-                   "Publisher" => $publiser, 
+                   "Publisher" => $publisher, 
                    "PublishDate" => $publishData, 
                    "PageNumber" => $pageNumber,
                    "Language" => $language,
                    "Translator" => $translator,
                    "Condition" => $condition, 
-                   "Genre" => $genre, 
-                   "Cover" => "empty" );
+                   "Genre" => $genre,
+                   "Owner" => " " ); 
 
-    $book_json = json_encode($data);
-    
+    $book_json = json_encode($book);
+    echo $book_json;
+
     //Posting to API
-    $ch = curl_init('http://localhost:5000/book/add');                                                                      
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $book_json);                                                                  
+    $data = array( "Title" =>  $title, "Author" =>  $author, "Publisher" => $publisher, "PublishDate" => $publishData,"PageNumber" => $pageNumber,"Language" => $language, "Translator" => $translator, "Condition" => $condition,"Genre" => $genre);                                                                  
+	$data_string = json_encode($data);                                                                           
+	
+	$ch = curl_init('http://10.100.6.126:5000/add');                                                                      
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);                                                                     
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
 			'Content-Type: application/json',                                                                                
-			'Content-Length: ' . strlen($book_json))                                                                       
-	);                                                                                                   
-    $result = curl_exec($ch); echo $result; //Code of result. Just for debugging
-    $error = curl_error($ch); echo $error;
-    curl_close($ch);
+            'Content-Length: ' . strlen($data_string),
+            "Authorization: Bearer ".$_COOKIE['token'])                                                                
+	);                                                                                                                   
+	
+	
+	$result = curl_exec($ch);
 
 
     header("Location: dashboard.php");

@@ -18,13 +18,11 @@ $_SESSION['error'] = $tmp;
 if ($check === true){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	$curl = curl_init(); //LOADING CURL ([a-Z]) x.group(1)
 	$data = array( "Email" =>  $email, "Password" =>  $password);                                                                    
-			$data_string = json_encode($data);  
-			echo 'console.log('.$data_string.')';                                                                                 
+	$data_string = json_encode($data);                                                                             
 		
-	$ch = curl_init('http://localhost:5000/login');                                                                      
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                     
+	$ch = curl_init('http://10.100.6.126:5000/login');                                                                      
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
@@ -34,15 +32,28 @@ if ($check === true){
 	
 				$result = curl_exec($ch);
 }
+$respone_code = curl_getinfo($ch)['http_code'];
 
-$result = json_decode($result, true);
-//echo($result['token']);
-setcookie("token", $result['token'], $result['expiry']);
-header("Location: dashboard.php");
+if($respone_code == 200){
+
+	$result = json_decode($result, true);
+	setcookie("token", $result['token'], strtotime('2019-08-16'));
+	header("Location: dashboard.php");
+	$_SESSION['isLogged'] = true;
+
+} else {
+
+	$_SESSION['error'] += "<li>Invalid credentials</li>";
+	header("Location: login.php");
+	$_SESSION['isLogged'] = false;
+	
+}
+
 
 if ($check === false) {
 	$_SESSION['auth'] = 'log_in.php';
 	header("Location: auth.php");
+
 }
                                                                                                                  
 ?>
