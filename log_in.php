@@ -3,13 +3,13 @@
     <form action="checkLogin.php" method="post" class="log_in">
     
         <div class="field">      
-        <input class="input-group" type="email" name="email" class="login_email" placeholder="example@domain.com" required>
-        <label>Email</label>
+            <input class="input-group" type="email" name="email" class="login_email" placeholder="example@domain.com" required>
+            <label>Email</label>
         </div>
         
         <div class="field">      
-        <input class="input-group" type="password" name="password" class="login_password" placeholder="your secret password" required>
-        <label>Password</label>
+            <input class="input-group" type="password" name="password" class="login_password" placeholder="your secret password" required>
+            <label>Password</label>
         </div>
 
         <div class="group">
