@@ -28,8 +28,64 @@
   
   <?php $_SESSION['auth'] = 'log_in.php';?>
 
+
+
+	 <div id="allBooksList">
+    
+		<?php 
+		//****************************************************************************************
+										//BOOKS LISTING
+		//****************************************************************************************	
+		$curl = curl_init(); //LOADING CURL 
+
+		curl_setopt_array($curl, array(
+		  CURLOPT_URL => "http://192.168.43.124:5000/book", //HERE API LINK
+		  CURLOPT_RETURNTRANSFER => true,
+		  CURLOPT_TIMEOUT => 30,
+		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		  CURLOPT_CUSTOMREQUEST => "GET",						  //REQUEST TYPE
+		  CURLOPT_HTTPHEADER => array(
+			"cache-control: no-cache"
+		  ),
+		));
+
+		$response = curl_exec($curl);							  //HERE IS RESPONSE IN JSON
+		$err = curl_error($curl);
+		$response = json_decode($response, true);				  //DECODING JSON TO ARRAY
+		
+		echo '<h2>Books</h2></br>';
+		echo '<div class="container">';
+
+		for($i = 0; $i < count($response);$i++){				  //SHOWING BOOKS
+			echo '<div class="item">';
+			echo '<div class="cover"></div>';
+			echo '<h3>'.$response[$i]['title'].'</h3>';
+			echo '<p>'.$response[$i]['author'].'</p>';
+			echo '<p> Price:'.$response[$i]['price'].' zl</p>';			
+			echo '</div>';
+		}
+		echo '</div>';
+
+<<<<<<< HEAD
+		curl_close($curl);
+		?>
+	</div>
   
     <!-- jQuery -->
+=======
+		curl_close($curl);*/
+		?>
+	</div>
+        
+      
+    <nav>
+      Books
+      
+
+    </nav>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+>>>>>>> e845f33d904387c7cccf912416cb90b2e7669508
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="js/particles.js"></script>

@@ -1,5 +1,63 @@
-form{
+body {
+    background: #2fa8ec;
+    font-size: 20px;
+}
+
+label[for='errors'] {
+    color: red;
+}
+
+.container {
     display: flex;
-    flex-direction: column;
-    flex: 0 1 auto;
+    justify-content: center;
+}
+
+.group {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.field {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-bottom: 1em;
+}
+
+.btn {
+    width: 100%;
+    color: #2fa8ec;
+}
+
+label,
+input {
+    transition: all 0.2s;
+    touch-action: manipulation;
+}
+
+input {
+    border: 0;
+    font-size: 20px;
+    border-bottom: 1px solid transparent;
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding: 0;
+    cursor: text;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+input:focus {
+    outline: 0;
+    border-bottom: 1px solid #666;
+}
+
+::-webkit-input-placeholder {
+    opacity: 0;
+    transition: inherit;
+}
+
+input:focus::-webkit-input-placeholder {
+    opacity: 1;
 }
