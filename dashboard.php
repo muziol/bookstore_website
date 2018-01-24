@@ -46,53 +46,6 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
   </div>
 </nav>
 
-
-        
-    
-    
-    
-        <div id="allBooksList">
-        <?php 
-        //****************************************************************************************
-                                        //BOOKS LISTING
-        //****************************************************************************************	
-        $curl = curl_init(); //LOADING CURL 
-    
-        curl_setopt_array($curl, array(
-          CURLOPT_URL => $_SESSION['apiIP']."/book", 
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_TIMEOUT => 30,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => "GET",						  //REQUEST TYPE
-          CURLOPT_HTTPHEADER => array(
-            //"Authorization: Bearer ".$_COOKIE['token']
-          )
-        ));
-    
-        $response = curl_exec($curl);							  //HERE IS RESPONSE IN JSON
-        $err = curl_error($curl);
-        $response = json_decode($response, true);				  //DECODING JSON TO ARRAY
-        
-        echo '<h2>Books</h2></br>';
-        echo '<div class="container">';
-    
-        for($i = 0; $i < count($response);$i++){				  //title do zmiany na id jak bedzie w API
-            echo '<div class="item" id='.$i.' onclick="goToBook(\''.$response[$i]['title'].'\')">';
-            echo '<div class="cover"></div>';
-            echo '<h3>'.$response[$i]['title'].'</h3>';
-            echo '<p>'.$response[$i]['author'].'</p>';
-            //echo '<p>'.$response[$i]['genre'].'</p>';	
-            //echo '<p>'.$response[$i]['email'].'</p>';	
-            echo '</div>';
-        }
-        echo '</div>';
-    
-        curl_close($curl);
-        ?>
-    
-        </div>  
-        </form>
-    </div>
     <script type="text/javascript" src="js/dashboard.js" ></script>
 </body>
 </html>
