@@ -3,17 +3,7 @@ session_start();
 $_SESSION['apiIP'] = "http://localhost:5000";
 //validation
 $check = true;
-$tmp = "Errors: <ul>";
-if ( $_POST['email'] === "" ){
-	$tmp .= "<li>E-mail is empty</li>"; 
-	$check = false;
-}
-if ( $_POST['password'] === "" ){
-	$tmp .= "<li>Password is empty</li>"; 
-	$check = false;
-}  
-$tmp .= "</ul>";
-$_SESSION['error'] = $tmp;
+
 //CURL
 if ($check === true){
 	$email = $_POST['email'];
@@ -35,16 +25,15 @@ if ($check === true){
 $response_code = curl_getinfo($ch)['http_code'];
 
 if($response_code == 200){
-	$_SESSION['isLogged'] = "logged";
 	$result = json_decode($result, true);
 	setcookie("token", $result['token'], strtotime('2019-08-16'));
 	unset($_SESSION['error']);
 	header("Location: dashboard.php");
-
+ 
 
 } else {
 
-	$_SESSION['error'] += "<li>Invalid credentials</li>";
+	$_SESSION['error'] = "Invalid credentials";
 	header("Location: log_in.php");
 	
 }

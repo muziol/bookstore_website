@@ -1,7 +1,5 @@
 <?php
-
-//if(isset($_SESSION['isLogged'])) {header('Location: dashboard.php');}
-if(isset($_COOKIE['token'])) {header('Location: dashboard.php');}
+  if(isset($_COOKIE['token'])) {header('Location: dashboard.php');}
 ?>
 
 <!DOCTYPE html>

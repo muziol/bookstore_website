@@ -3,62 +3,71 @@
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/login.css">
     
 </head>
 <div class="container">
 <form action="sign_up.php" method="post" class="sign_up">
 
-    <div class="field">
-        <input type="text" name="name" class="sign_name" placeholder="First name">
-        <label>First name</label>
-
+    <div class="form-group row justify-content-md-center">
+        <h2>Ksiegareks</h2>
     </div>
 
-    <div class="field">
-        <input type="text" name="surrname" class="sign_surname" placeholder="Last name">
-        <label >Last name</label>
-
+    <div class="form-group row justify-content-md-center">
+            <div class="col-md-3">
+                <label for="firstInput" >First name</label>
+                <input required="true" type="text" class="form-control" name="name" id="firstInput">
+            </div>
+            <div class="col-md-3">
+                <label for="lastInput" >Last name</label>
+                <input required="true" type="text" class="form-control" name="surrname" id="lastInput">
+            </div>
     </div>
 
-    <div class="field">
-        <input type="email" name="email" class="sign_email" placeholder="example@domain.com">
-        <label>Email</label>
-
+    <div class="form-group row justify-content-md-center">
+            <div class="col-md-6">
+                <label for="emailInput" >Email</label>
+                <input required="true" type="email" class="form-control" name="email" id="emailInput">
+            </div>
     </div>
 
-    <div class="field">
-        <input type="password" name="password" class="sign_password" placeholder="Your secrect password">
-        <label>Password</label>
+    <div class="form-group row justify-content-md-center">
+            <div class="col-md-3">
+                <label for="pass1Input" >Password</label>
+                <input required="true" type="password" class="form-control" name="password" id="pass1Input">
+            </div>
+            <div class="col-md-3">
+                <label for="pass2Input" >Reapeat password</label>
+                <input required="true" type="password" class="form-control" name="repeat_password" id="pass2Input">
+            </div>
     </div>
 
-    <div class="field">
-        <input type="password" name="repeat_password" class="sign_repeat_password" placeholder="reapeat the same password here">
-        <label>Reapeat password</label>
+
+    <div class="form-group row justify-content-md-center">
+            <div class="col-md-3">
+                <label for="phoneInput" >Phone</label>
+                <input required="true" type="text" class="form-control" name="phone" id="phoneInput">
+            </div>
+            <div class="col-md-3">
+                <label for="cityInput" >City</label>
+                <input required="true" type="text" class="form-control" name="city" id="cityInput">
+            </div>
     </div>
 
-    <div class="field">
-        <input type="tel" name="phone" class="sing_phone" placeholder="We need to find you">
-        <label>Phone number</label>
-    </div>
-
-    <div class="field">
-        <input type="text" name="city" class="city" placeholder="We need know where send your staff">
-        <label>City</label>
-    </div>
-
-    <div class="group">
-        <label for="submit">
-            <input type="submit" value="Create account!">
-        </label>
+        <div class="form-group row justify-content-md-center">
+            <input type="submit" class="btn btn-primary"value="Create account!">
+        </div>
     
         <label for="errors">
             <?php if ( isset($_SESSION['error']) ){echo $_SESSION['error']; unset($_SESSION['error']);} ?>
         </label>
     
-        <label for="account_exist">
-            <span>Have ur account? <a href="log_in.php" >Log in now!</a> </span>
-        </label>
+        <div class="form-group row justify-content-md-center">
+        <small class="text-muted">Have ur account? <a href="log_in.php" >Log in now!</a> </small>
+        </div>
+
     </div>
 </form>
 </div>
