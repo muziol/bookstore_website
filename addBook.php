@@ -97,10 +97,16 @@ if($check == true){
 	);                                                                                                                   
 	
 	
-	$result = curl_exec($ch);
+    $result = curl_exec($ch);
+    $response_code = curl_getinfo($ch)['http_code'];
+    
+    if($response_code == 201){
+        $_SESSION['success'] = "Success! Your book is now visible for others.";
+    } else {
+        $_SESSION['error'] = "Ups, something went wrong. Try again later.";
+    }
 
-
-    header("Location: dashboard.php");
+    header("Location: addOffer.php");
 
 
 

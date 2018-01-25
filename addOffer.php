@@ -112,9 +112,12 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
             
              
         
-                <label for="errors">
-                    <?php if( isset($_SESSION['error']) ){echo $_SESSION['error']; unset($_SESSION['error']);}?>
-                </label>
+            <div class="row justify-content-md-center">
+                <div class=" mt-3">
+                    <?php if ( isset($_SESSION['error']) ){echo '<p class="text-danger">'.$_SESSION['error'].'</p>'; unset($_SESSION['error']);}?>
+                    <?php if ( isset($_SESSION['success']) ){echo '<p class="text-success">'.$_SESSION['success'].'</p>'; unset($_SESSION['success']);}?>
+                </div>
+            </div>
             </div>
             </div>
             </fieldset>
