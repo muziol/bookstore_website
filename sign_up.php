@@ -67,9 +67,5 @@ if	($check === true) {
 	
 	$result = curl_exec($ch);
 }
-if ($check === false) {
-	$_SESSION['auth'] = 'sign_in.php';
-	header("Location: auth.php");
-}
 
 ?>

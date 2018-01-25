@@ -38,11 +38,5 @@ if($response_code == 200){
 	
 }
 
-/*
-if ($check === false) {
-	$_SESSION['auth'] = 'log_in.php';
-	header("Location: auth.php");
-
-}*/
                                                                                                                  
 ?>
