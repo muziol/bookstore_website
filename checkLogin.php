@@ -26,8 +26,9 @@ $response_code = curl_getinfo($ch)['http_code'];
 
 if($response_code == 200){
 	$result = json_decode($result, true);
-	setcookie("token", $result['token'], strtotime('2019-08-16'));
+	setcookie("token", $result['token'], time() + 24 * 60 * 60);
 	unset($_SESSION['error']);
+	$_SESSION['emailLogged'] = $_POST['email'];
 	header("Location: dashboard.php");
  
 

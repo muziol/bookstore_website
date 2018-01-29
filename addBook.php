@@ -3,13 +3,7 @@ session_start();
 
 if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 
-?>
 
-<?php
-session_start();
-if(!isset($_SESSION['isLogged'])){
-    header("Location: login.php");
-}
 
 
 //////////////////////////////
