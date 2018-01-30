@@ -17,7 +17,7 @@ if($_GET['bookid']!=null){
            
     );
 
-    $result = curl_exec($ch);
+    $result = curl_exec($ch);   
     $response_code = curl_getinfo($ch)['http_code'];
     $_SESSION['success'] =  $response_code;
     if($response_code == 200){
