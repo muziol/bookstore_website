@@ -68,9 +68,48 @@ if($_GET['userid']!=null){
         echo '<b>City: </b><p>'.$response['city'].'</p>';    
         echo '<div>';
 
+        
+    $url =  $_SESSION['apiIP'].'/userbooks/'.$response['email'];
+
+    $ch = curl_init($url);                                                              
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                                                                                   
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);                                                                  
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+            'Content-Type: application/json'   )
+           
+    );
+
+
+
+    $result = curl_exec($ch);
+    $response_code = curl_getinfo($ch)['http_code'];
+    $response = json_decode($result, true);
+
+    if($response_code == 200){
+      echo "<p><b>Books:</b></p>";
+      for($i = 0; $i < count($response);$i++){
+        echo '<div onclick=goToBook(\''.$response[$i]['id'].'\')>';
+        echo $response[$i]['title'];
+        echo "</div>";
+      }
+    } else {
+      echo "Blad serwera";
+    }
+
     } else {
         echo "There is no user with this id.";
     }
 
+
+
+
+
+
+
 }
+
+
+
+
 ?>
