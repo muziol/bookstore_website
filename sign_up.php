@@ -69,8 +69,10 @@ if	($check === true) {
 	$response_code = curl_getinfo($ch)['http_code'];
 	if($response_code == 200){
 		header("Location: log_in.php");
+		$_SESSION['succes'] = "Account created!";
 	} else {	
 		header("Location: sign_in.php");
+		$_SESSION['error'] = "Something went wrong.";
 	}
 }
 
