@@ -1,7 +1,7 @@
 <?php
 session_start();
 ini_set('session.cookie_lifetime', time() * 24 * 60 * 60);
-ini_set('session.gc-maxlifetime',time() *  24 * 60 * 60);
+ini_set('session.gc-maxlifetime', time() *  24 * 60 * 60);
 $_SESSION['apiIP'] = "http://10.100.6.90:5000";
 //validation
 $check = true;

@@ -92,7 +92,7 @@ echo '<h2>'.$_SESSION['emailLogged'].'</h2>';
 echo '</div>';
 
 ?>
-
+</div>
 <div class="row justify-content-md-center">
                 <div class=" mt-3">
                     <?php if ( isset($_SESSION['error']) ){echo '<p class="text-danger">'.$_SESSION['error'].'</p>'; unset($_SESSION['error']);}?>
@@ -100,7 +100,7 @@ echo '</div>';
                 </div>
   </div>
 </div>
-</div>
+
 
 
 </body>
