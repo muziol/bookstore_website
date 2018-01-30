@@ -43,7 +43,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
   </nav>
 
 <?php
-if($_GET['bookid']!=null){
+if($_GET['userid']!=null){
 
     $userId = $_GET['userid'];
     $url =  $_SESSION['apiIP'].'/user/'.$userId;
