@@ -18,7 +18,7 @@
   if ( isset($_SESSION['error'])) unset($_SESSION['error']); 
   ?>
   <div class="main">
-    <span class="msg_welcome">Welcome on TradeRex</span>   
+    <span class="msg_welcome">Welcome on KsiegaRex</span>   
     <picture>
         <!--source srcset='large.webp' media='(min-width: 992px)' type='image/webp'>
         <source srcset='large.jpg' media='(min-width: 992px)' type='image/jpeg'-->
