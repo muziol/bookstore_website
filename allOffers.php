@@ -76,10 +76,9 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
         echo '<h2 class="mt-4">Books</h2></br>';
         echo '<div class="row">';
         for($i = 0; $i < count($response);$i++){				  //title do zmiany na id jak bedzie w API
-            echo '<div class="card ml-1 mr-1 mb-3 "  style="width: 10rem;" id='.$i.' onclick="goToBook(\''.$response[$i]['title'].'\')">';
+            echo '<div class="card ml-1 mr-1 mb-3 "  style="width: 10rem;" id='.$i.' onclick="goToBook(\''.$response[$i]['id'].'\')">';
             echo '<div class="ml-2 mb-2 mt-2" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><b data-toggle="tooltip" data-placement="top" title="'.$response[$i]['title'].'">'.$response[$i]['title'].'</b></br>'.$response[$i]['author'].'</div>';
             echo '<img src="img/sample.png" widht="130px" height="220px">';
-            echo '<p class="ml-2 mt-2">nikos@onet.pl</p>'; //Kto dodal
             echo '</div>';
             
         }
