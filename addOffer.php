@@ -46,64 +46,64 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
             <div class="container">
             <fieldset>
             <div class="form-group row justify-content-md-center">
-            <div class="col-md-2 mb-4 mt-4">
+            <div class="col-md-6 mb-4 mt-4">
             <legend>Add new offer</legend>
             </div>
             </div>
            
             <div class="form-group row justify-content-md-center">
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="titleInput">Title *</label>
                 <input required="true" type="text" class="form-control" name="title" id="titleInput" placeholder="Enter title of book">
             </div>
 
 
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="authorInput">Author *</label>
                 <input required="true" type="text"class="form-control" name="author" id="authorInput" placeholder="The person who wrote this book">
             </div>
             </div>
            
             <div class="form-group row justify-content-md-center">
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="publishInput">Publisher</label>
                 <input type="text" class="form-control" name="publisher" id="publishInput" placeholder="Organization whos publish book">
             </div>
 
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="dataInput">Publish date</label>
                 <input type="text" class="form-control" name="publishdata" id="dataInput" placeholder="When the book was published">
             </div>
             </div>
             <div class="form-group row justify-content-md-center">
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="numberInput">Number of pages</label>
                 <input type="number" class="form-control" name="pagenumber" id="numberInput" placeholder="How many pages we need to read">
             </div>
 
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="languageInput">Language</label>
                 <input type="text" class="form-control" name="language" id="languageInput" placeholder="Orginal laguage of book">
             </div>
             </div>
             <div class="form-group row justify-content-md-center">
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="translatorInput">Translator</label>
                 <input type="text" class="form-control" name="translator" id="translatorInput" placeholder="Person who translated">
             </div>
 
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="conditionInput">Condition</label>
                 <input type="text" class="form-control" name="condition" id="conditionInput" placeholder="Tell how much this book is able to read">
             </div>
             </div>
         
             <div class=" row justify-content-md-center">
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
                 <label for="genreInput">Genre*</label>
                 <input required="true" type="text" class="form-control" name="genre" id="genreInput" placeholder="Type of your book">
             </div>
-            <div class="col-md-3 mt-0">
+            <div class="col-md-4 mt-0">
                 <label for="genreInput">Add your book</label>
                 <button class="btn btn-primary col-md-12" type="submit">Publish</button>
             </div>
@@ -113,7 +113,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
              
         
             <div class="row justify-content-md-center">
-                <div class=" mt-3">
+                <div class=" mt-4">
                     <?php if ( isset($_SESSION['error']) ){echo '<p class="text-danger">'.$_SESSION['error'].'</p>'; unset($_SESSION['error']);}?>
                     <?php if ( isset($_SESSION['success']) ){echo '<p class="text-success">'.$_SESSION['success'].'</p>'; unset($_SESSION['success']);}?>
                 </div>
