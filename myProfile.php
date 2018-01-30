@@ -76,7 +76,7 @@ echo '<h2>'.$_SESSION['emailLogged'].'</h2>';
       for($i = 0; $i < count($response);$i++){
        
         echo "<div >";
-        echo $response[$i]['title'].' <button onclick="" type="button" class="btn btn-danger btn-sm">Delete</button>';
+        echo $response[$i]['title'].' <button onclick="deleteBook(\''.$response[$i]['id'].'\')" type="button" class="btn btn-danger btn-sm">Delete</button>';
         echo "</div>";
       }
     } else {

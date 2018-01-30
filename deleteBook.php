@@ -6,7 +6,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 if($_GET['bookid']!=null){
     $bookId = $_GET['bookid'];
     $url =  $_SESSION['apiIP'].'/book'.'/id/'.$bookId;
-    #"10.100.6.90:5000/book/id/345835803485093458039485"
+    #"10.100.6.90:5000/book/delete/"
     $ch = curl_init($url);                                                              
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");                                                                                                                                   
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    
@@ -19,14 +19,15 @@ if($_GET['bookid']!=null){
 
     $result = curl_exec($ch);
     $response_code = curl_getinfo($ch)['http_code'];
-    echo $response_code;
+    $_SESSION['success'] =  $response_code;
     if($response_code == 200){
         $_SESSION['success'] = "Book deleted";
-        header("Location: myProfile.php");
+
     } else {
         $_SESSION['error'] = "Server error";
-    }
 
+    }
+    header("Location: myProfile.php");
 
 
 }
