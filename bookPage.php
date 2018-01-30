@@ -10,7 +10,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 <head>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/bookPage.css">
     <script src="js/dashboard.js"></script>
 </head>
 <body>
@@ -70,18 +70,22 @@ if($_GET['bookid']!=null){
         
         /************************************/
         $response = json_decode($result, true);
-        echo '<img src="img/sampleBig.png">';
-        echo '<div>';
-        echo '<b>Title: </b>'.$response['title']."</p>";
-        echo '<b>Author: </b><p>'.$response['author']."</p>";
-       // echo '<b>Publisher: </b><p>'.$response['publisher'];
-       // echo '<b>Publish Date: </b><p>'.$response['publishdate'];
-       // echo '<b>Page Number: </b><p>'.$response['pagenumber'];
-        echo '<b>Language: </b><p>'.$response['language']."</p>";
-        echo '<b>Translator: </b><p>'.$response['translator']."</p>";
-        echo '<b>Condition: </b><p>'.$response['condition']."</p>";
-        echo '<b>Genre: </b><p>'.$response['genre']."</p>";
-
+    ?>
+    <main>
+        <div class="container">
+            <img src="img/sampleBig.png">
+            <div class="description">
+                <b>Title: </b><?php echo $response['title'] ?></p>
+                <b>Author: </b><p> <?php echo $response['author'] ?> </p>
+                <!-- <b>Publisher: </b><p> <?php echo $response['publisher'] ?> -->
+                <!-- <b>Publish Date: </b><p> <?php echo $response['publishdate'] ?>
+                <b>Page Number: </b><p> <?php echo $response['pagenumber'] ?> -->
+                <b>Language: </b><p> <?php echo $response['language'] ?></p>
+                <b>Translator: </b><p> <?php echo $response['translator'] ?></p>
+                <b>Condition: </b><p> <?php echo $response['condition'] ?></p>
+                <b>Genre: </b><p> <?php echo $response['genre'] ?></p>
+            
+        <?php
         //DALEJ LOGIN UZYTKOWNIKA I TELEFON
         $url =  $_SESSION['apiIP'].'/user/'.$response['owner'];
         $curlUser = curl_init($url);
@@ -97,14 +101,20 @@ if($_GET['bookid']!=null){
         $response_code = curl_getinfo($curlUser)['http_code'];
         $response = json_decode($result, true);
         if($response_code == 200){
-            echo '<div  onclick="goToUser(\''.$response['id'].'\')">';
-            echo '<b>User: </b><p>'.$response['email']."</p>";
-            echo '</div>';
-            echo '<b>Phone: </b><p>'.$response['userPhone']."</p>";
-            echo '</div>';
+            ?>
+            <div  onclick="goToUser(' <?php echo $response['id'] ?>')">
+            <b>User: </b><p> <?php echo $response['email'] ?> </p>
+            </div>
+            <b>Phone: </b><p> <?php echo $response['userPhone'] ?> </p>
+            </div><?php
         } else {
-            echo "There is no user assigned to this book.";
-            echo '</div>';
+             echo "There is no user assigned to this book."; 
+            ?>
+                </div>
+            </div>
+        </div>
+    </main>
+        <?php
         }
 
     } else {
