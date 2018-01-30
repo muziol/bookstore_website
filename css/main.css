@@ -43,6 +43,14 @@ body {
     left: 50%;
     transform: translate3d(-50%,-50%,0);
 }
+.msg_welcome {
+    text-align: center;
+    width: 100%;
+}
+.msg_login {
+    width: 100%;
+    text-align: center;
+}
 @media screen and (min-width : 1470px){
     .msg_welcome{
         font-size: 2.5em;

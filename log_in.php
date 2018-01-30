@@ -42,7 +42,7 @@
         </div>
 
         <div class="row justify-content-md-center">
-            <small class="text-muted"> Don't have an account yet? Don't hesitate, <a href="sign_in.php" >register now!</a></small>
+            <small> Don't have an account yet? Don't hesitate, <a href="sign_in.php" >register now!</a></small>
         </div>
         
         </div>
