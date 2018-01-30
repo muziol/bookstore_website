@@ -2,7 +2,7 @@
 session_start();
 ini_set('session.cookie_lifetime', time() * 24 * 60 * 60);
 ini_set('session.gc-maxlifetime',time() *  24 * 60 * 60);
-$_SESSION['apiIP'] = "http://localhost:5000";
+$_SESSION['apiIP'] = "http://10.100.6.90:5000";
 //validation
 $check = true;
 
@@ -35,7 +35,7 @@ if($response_code == 200){
 
 } else {
 
-	$_SESSION['error'] = "Invalid credentials" + $response_code;
+	$_SESSION['error'] = "Invalid credentials";
 	header("Location: log_in.php");
 	
 }
