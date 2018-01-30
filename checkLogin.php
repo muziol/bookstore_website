@@ -30,6 +30,7 @@ if($response_code == 200){
 	setcookie("token", $result['token'], time() + 24 * 60 * 60);
 	unset($_SESSION['error']);
 	$_SESSION['emailLogged'] = $_POST['email'];
+	$_SESSION['idLogged'] = $_POST['email'];
 	header("Location: dashboard.php");
  
 

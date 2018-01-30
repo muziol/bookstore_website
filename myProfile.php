@@ -107,7 +107,6 @@ echo '</div>';
 <div>
 
 
-<p>Account</p>
 <form action="deleteAccount.php">
 
 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
