@@ -11,6 +11,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
     <script src="js/dashboard.js"></script>
+    <link rel="stylesheet" href="css/myProfile.css">
 </head>
 
 <body>
@@ -102,15 +103,18 @@ echo '</div>';
                 </div>
   </div>
 </div>
-<div class="row justify-content-md-center">
-<h2>Delete account:</h2>
-<div>
+<div class="container">
+  <div class="row justify-content-md-center">
+  <h2>Delete account:</h2>
+  </div>
 
+  <div class="row justify-content-md-center">
+    <form action="deleteAccount.php">
 
-<form action="deleteAccount.php">
-
-<button type="submit" class="btn btn-danger btn-sm">Delete</button>
-</form>
+    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+    </form>
+  </div>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
