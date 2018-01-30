@@ -52,9 +52,53 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 //Wyswietl dane o uzytkowniku
 echo '<div class="mt-3">';
 echo '<h2>'.$_SESSION['emailLogged'].'</h2>';
+
+  
+    $url =  $_SESSION['apiIP'].'/userbooks/'.$_SESSION['emailLogged'];
+
+    $ch = curl_init($url);                                                              
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                                                                                   
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);                                                                  
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+            'Content-Type: application/json'   )
+           
+    );
+
+
+
+    $result = curl_exec($ch);
+    $response_code = curl_getinfo($ch)['http_code'];
+    $response = json_decode($result, true);
+
+    if($response_code == 200){
+      echo "<h4>Your books:</h4>";
+      for($i = 0; $i < count($response);$i++){
+       
+        echo "<div >";
+        echo $response[$i]['title'].' <button onclick="deleteBook(\''.$response[$i]['id'].'\')" type="button" class="btn btn-danger btn-sm">Delete</button>';
+        echo "</div>";
+      }
+    } else {
+      echo "Blad serwera";
+    }
+
+    
+
+
+
+
+
 echo '</div>';
 
 ?>
+
+<div class="row justify-content-md-center">
+                <div class=" mt-3">
+                    <?php if ( isset($_SESSION['error']) ){echo '<p class="text-danger">'.$_SESSION['error'].'</p>'; unset($_SESSION['error']);}?>
+                    <?php if ( isset($_SESSION['success']) ){echo '<p class="text-success">'.$_SESSION['success'].'</p>'; unset($_SESSION['success']);}?>
+                </div>
+  </div>
 </div>
 </div>
 

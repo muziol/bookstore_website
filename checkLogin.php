@@ -35,7 +35,7 @@ if($response_code == 200){
 
 } else {
 
-	$_SESSION['error'] = "Invalid credentials" + $response_code;
+	$_SESSION['error'] = "Invalid credentials";
 	header("Location: log_in.php");
 	
 }
