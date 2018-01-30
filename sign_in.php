@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/login.css">
+
+    <!--[if gte IE 9]
+    <style type="text/css">
+    .gradient {
+        filter: none;
+    }
+    </style>      
+    <![endif]-->
     
 </head>
 <div class="container">
@@ -56,7 +64,7 @@
             </div>
     </div>
 
-        <div class="form-group row justify-content-md-center">
+        <div class="form-group row justify-content-md-center button-sign">
             <input type="submit" class="btn btn-primary"value="Create account!">
         </div>
     
@@ -65,7 +73,7 @@
         </label>
     
         <div class="form-group row justify-content-md-center">
-        <small class="text-muted">Have ur account? <a href="log_in.php" >Log in now!</a> </small>
+        <small>Have ur account? <a href="log_in.php" >Log in now!</a> </small>
         </div>
 
     </div>

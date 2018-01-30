@@ -7,7 +7,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0">
 
     <link rel="stylesheet" type="text/css" href="./css/main.css">
   </head>
@@ -29,10 +29,7 @@
       <input type="button" value="Log in" class="login">
     </label>
   </div>
-<<<<<<< HEAD
   
-=======
->>>>>>> cc38cb202e58cc2003fbbf34f26a9b07614f2121
 
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
