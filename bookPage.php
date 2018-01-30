@@ -102,7 +102,7 @@ if($_GET['bookid']!=null){
         $response = json_decode($result, true);
         if($response_code == 200){
             ?>
-            <div  onclick="goToUser(' <?php echo $response['id'] ?>')">
+            <div  onclick="goToUser('<?php echo $response['id'] ?>')">
             <b>User: </b><p> <?php echo $response['email'] ?> </p>
             </div>
             <b>Phone: </b><p> <?php echo $response['userPhone'] ?> </p>

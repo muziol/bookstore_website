@@ -92,6 +92,8 @@ echo '<h2>'.$_SESSION['emailLogged'].'</h2>';
 echo '</div>';
 
 ?>
+
+
 </div>
 <div class="row justify-content-md-center">
                 <div class=" mt-3">
@@ -100,6 +102,16 @@ echo '</div>';
                 </div>
   </div>
 </div>
+<div class="row justify-content-md-center">
+<h2>Delete account:</h2>
+<div>
+
+
+<p>Account</p>
+<form action="deleteAccount.php">
+
+<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+</form>
 
 
 
