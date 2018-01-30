@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set('session.cookie_lifetime', time() * 24 * 60 * 60);
+ini_set('session.gc-maxlifetime',time() *  24 * 60 * 60);
 $_SESSION['apiIP'] = "http://localhost:5000";
 //validation
 $check = true;
@@ -23,7 +25,6 @@ if ($check === true){
 				$result = curl_exec($ch);
 }
 $response_code = curl_getinfo($ch)['http_code'];
-
 if($response_code == 200){
 	$result = json_decode($result, true);
 	setcookie("token", $result['token'], time() + 24 * 60 * 60);
@@ -34,7 +35,7 @@ if($response_code == 200){
 
 } else {
 
-	$_SESSION['error'] = "Invalid credentials";
+	$_SESSION['error'] = "Invalid credentials" + $response_code;
 	header("Location: log_in.php");
 	
 }

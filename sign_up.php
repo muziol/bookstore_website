@@ -66,6 +66,14 @@ if	($check === true) {
 	
 	
 	$result = curl_exec($ch);
+	$response_code = curl_getinfo($ch)['http_code'];
+	if($response_code == 200){
+		header("Location: log_in.php");
+	} else {	
+		header("Location: sign_in.php");
+	}
 }
+
+
 
 ?>
