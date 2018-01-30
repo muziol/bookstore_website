@@ -49,10 +49,6 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 
 
 
-
-
-
-
     <script type="text/javascript" src="js/dashboard.js" ></script>
 </body>
 </html>
