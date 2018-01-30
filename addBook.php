@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
+
+
+
+
 //////////////////////////////
 // Validation of  user input
 //////////////////////////////
@@ -38,7 +43,7 @@ if($check == true){
     //Values which might be not specified
     if($_POST['publisher'] == null) { $_POST['publisher'] = "Not specified"; } //Setting unspecified values to Not specified
     if($_POST['publishdata'] == null) { $_POST['publishData'] = "Not specified"; }
-    if($_POST['pagenumber'] == null) { $_POST['pagenumber'] = "Not specified"; }
+    if($_POST['pagenumber'] == null) { $_POST['pagenumber'] = "0"; }
     if($_POST['language'] == null) { $_POST['language'] = "Not specified"; }
     if($_POST['translator'] == null) { $_POST['translator'] = "Not specified"; }
     if($_POST['condition'] == null) { $_POST['condition'] = "Not specified"; }
@@ -74,7 +79,7 @@ if($check == true){
     $data = array( "Title" =>  $title, "Author" =>  $author, "Publisher" => $publisher, "PublishDate" => $publishData,"PageNumber" => $pageNumber,"Language" => $language, "Translator" => $translator, "Condition" => $condition,"Genre" => $genre);                                                                  
 	$data_string = json_encode($data);                                                                           
 	
-	$ch = curl_init('http://10.100.6.126:5000/add');                                                                      
+	$ch = curl_init($_SESSION['apiIP'].'/add');                                                                      
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);                                                                     
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
@@ -86,22 +91,21 @@ if($check == true){
 	);                                                                                                                   
 	
 	
-	$result = curl_exec($ch);
+    $result = curl_exec($ch);
+    $response_code = curl_getinfo($ch)['http_code'];
+    
+    if($response_code == 201){
+        $_SESSION['success'] = "Success! Your book is now visible for others.";
+    } else {
+        $_SESSION['error'] = "Ups, something went wrong. Try again later.";
+    }
 
-
-    header("Location: dashboard.php");
+    header("Location: addOffer.php");
 
 
 
 }
-    //Relocation
    
-
-    if ($check === false) {
-        $_SESSION['auth'] = 'dashboard.php';
-        header("Location: auth.php");
-    }
-
 
 
 

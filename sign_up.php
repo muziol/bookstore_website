@@ -30,11 +30,11 @@ if ($_POST['password'] != $_POST['repeat_password'] ){
 	$tmp .= '<li>Passwords are not the same</li>';
 	$check = false;
 } 
-if ( $_POST['phone'] === ""   ){
+if ( $_POST['phone'] === ""){
 	$tmp .= '<li>Phone number is empty'; 
 	$check = false;
 }
-if ( $_POST['city'] === ""   ){
+if ( $_POST['city'] === ""){
 	$tmp .= '<li>City is empty'; 
 	$check = false;
 }
@@ -52,11 +52,10 @@ if	($check === true) {
 	$phone = $_POST['phone'];
 	$city = $_POST['city'];
 	//CURL
-	$curl = curl_init(); //LOADING CURL ([a-Z]) x.group(1)
 	$data = array( "Email" =>  $email, "Password" =>  $password, "UserName" => $name, "UserSurname" => $surname, "UserPhone" => $phone, "City" => $city, "Role" => "user");                                                                    
 	$data_string = json_encode($data);                                                                            
 	
-	$ch = curl_init('http://10.100.6.126:5000/register');                                                                      
+	$ch = curl_init($_SESSION['apiIP'].'/register');                                                                      
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
@@ -67,10 +66,14 @@ if	($check === true) {
 	
 	
 	$result = curl_exec($ch);
+	$response_code = curl_getinfo($ch)['http_code'];
+	if($response_code == 200){
+		header("Location: log_in.php");
+	} else {	
+		header("Location: sign_in.php");
+	}
 }
-if ($check === false) {
-	$_SESSION['auth'] = 'sign_in.php';
-	header("Location: auth.php");
-}
+
+
 
 ?>

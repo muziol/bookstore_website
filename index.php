@@ -1,3 +1,7 @@
+<?php
+  if(isset($_COOKIE['token'])) {header('Location: dashboard.php');}
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -25,7 +29,10 @@
       <input type="button" value="Log in" class="login">
     </label>
   </div>
+<<<<<<< HEAD
   
+=======
+>>>>>>> cc38cb202e58cc2003fbbf34f26a9b07614f2121
 
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->

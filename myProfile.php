@@ -5,15 +5,15 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 
 ?>
 
-
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
 	<meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <script src="js/dashboard.js"></script>
 </head>
-<body>
 
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">
   Ksiegareks
@@ -24,7 +24,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="dashboard.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -33,7 +33,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
       <li class="nav-item">
         <a class="nav-link" href="addOffer.php">Add offer</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="myProfile.php">My profile</a>
       </li>
      
@@ -42,17 +42,25 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
     <form class="form-inline my-2 my-lg-0" action="logout.php">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
     </form>
- 
+      
   </div>
 </nav>
 
+<div class="container">
+<div class="row justify-content-md-center">
+<?php 
+//Wyswietl dane o uzytkowniku
+echo '<div class="mt-3">';
+echo '<h2>'.$_SESSION['emailLogged'].'</h2>';
+echo '</div>';
+
+?>
+</div>
+</div>
 
 
-
-
-
-
-
-    <script type="text/javascript" src="js/dashboard.js" ></script>
 </body>
+
+
 </html>
+
