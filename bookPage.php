@@ -71,6 +71,7 @@ if($_GET['bookid']!=null){
         /************************************/
         $response = json_decode($result, true);
     ?>
+    <main>
         <div class="container">
             <img src="img/sampleBig.png">
             <div class="description">
@@ -112,6 +113,7 @@ if($_GET['bookid']!=null){
                 </div>
             </div>
         </div>
+    </main>
         <?php
         }
 
