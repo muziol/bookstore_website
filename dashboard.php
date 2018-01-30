@@ -11,6 +11,7 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
 <head>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
 
@@ -42,11 +43,15 @@ if(!isset($_COOKIE['token'])) {header('Location: log_in.php');}
     <form class="form-inline my-2 my-lg-0" action="logout.php">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
     </form>
+
+    
  
   </div>
 </nav>
 
-
+<main>
+  <img src="./img/logo_large.png" alt="Logo">
+</main>
 
 
     <script type="text/javascript" src="js/dashboard.js" ></script>
